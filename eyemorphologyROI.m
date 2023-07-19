@@ -176,13 +176,16 @@ cd(currdir);
 % 
 % pathSegment = [filedir(slashIdx(end-1)+1:slashIdx(end)-1), '_',filedir(slashIdx(end)+1:end)];
 % writetable(features2,'Summary.xlsx','Sheet',pathSegment,'WriteMode','overwritesheet');
-
-% voronoi(Dots2(:,1),Dots2(:,2))
+% 
+% Test = voronoi(Dots2(:,1),Dots2(:,2));
+% Test(1).LineWidth = 3;
+% Test(2).LineWidth = 3;
 % nump = size(Dots2,1);
 % plabels = arrayfun(@(n) {sprintf('X%d', n)}, (1:nump)');
 % hold on
-% Hpl = text(Dots2(:,1), Dots2(:,2), plabels, 'FontWeight', ...
+% Test2 = triplot(DT,'-r');
+% Test2.LineWidth = 3;
+% hold on
+% Hpl = text(Dots2(:,1), Dots2(:,2), plabels, 'FontSize',18,'FontWeight', ...
 %       'bold', 'HorizontalAlignment','center', ...
 %       'BackgroundColor', 'none');
-% hold on
-% triplot(DT,'-r');
