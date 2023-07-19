@@ -85,7 +85,7 @@ for loop = 1:numel(files)
     
     %% Threshold and ommatidia centres
     Thresh = adaptthresh(imadjust(rgb2gray(ImRes)), 'NeighborhoodSize', 5);
-    Im_thresh = imbinarize(imadjust(rgb2gray(ImRes)), 0.03 + Thresh); 
+    Im_thresh = imbinarize(imadjust(rgb2gray(ImRes)), 0.05 + Thresh); 
     Im_thresh2 = Im_thresh;
     Im_thresh2(~idx) = 0;
     Im_thresh2( ~any(ImRes3(:,:),2), :) = [];  %rows
@@ -176,3 +176,13 @@ cd(currdir);
 % 
 % pathSegment = [filedir(slashIdx(end-1)+1:slashIdx(end)-1), '_',filedir(slashIdx(end)+1:end)];
 % writetable(features2,'Summary.xlsx','Sheet',pathSegment,'WriteMode','overwritesheet');
+
+% voronoi(Dots2(:,1),Dots2(:,2))
+% nump = size(Dots2,1);
+% plabels = arrayfun(@(n) {sprintf('X%d', n)}, (1:nump)');
+% hold on
+% Hpl = text(Dots2(:,1), Dots2(:,2), plabels, 'FontWeight', ...
+%       'bold', 'HorizontalAlignment','center', ...
+%       'BackgroundColor', 'none');
+% hold on
+% triplot(DT,'-r');
